@@ -46,11 +46,25 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\Fade Script.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\Hole.cs" />
+     <Compile Include="Assets\iTweenEditor\Examples\StartAndStopTween.cs" />
+     <Compile Include="Assets\iTweenEditor\Helper Classes\EventParamMappings.cs" />
+     <Compile Include="Assets\iTweenEditor\Helper Classes\Vector3OrTransform.cs" />
+     <Compile Include="Assets\iTweenEditor\Helper Classes\Vector3OrTransformArray.cs" />
+     <Compile Include="Assets\iTweenEditor\iTween.cs" />
+     <Compile Include="Assets\iTweenEditor\iTweenEvent.cs" />
+     <Compile Include="Assets\iTweenEditor\iTweenPath.cs" />
+     <None Include="Assets\iTweenEditor\README.txt" />
+     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
+      <Project>{0D93AC51-376F-5140-D30E-E49F1C5530BF}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
