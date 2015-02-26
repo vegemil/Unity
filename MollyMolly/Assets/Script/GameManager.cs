@@ -32,10 +32,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		audio.clip = ReadySound;
 		audio.Play();
-		for(int i = 0; i<Holes.Length; i++)
-		{
-			Holes[i].MState = MoleState.CLOSE;
-		}
+
 	}
 	
 	public void Go()
