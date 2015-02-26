@@ -97,62 +97,53 @@
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/Program/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor.Graphs">
- <HintPath>D:/Program/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
  <Reference Include="Newtonsoft.Json">
  <HintPath>E:/Unity by jiguk/MollyMolly/Assets/Photon Unity Networking/Editor/PhotonNetwork/Newtonsoft.Json.dll</HintPath>
- </Reference>
- <Reference Include="PlayMakerEditorResources">
- <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/PlayMakerEditorResources.dll</HintPath>
- </Reference>
- <Reference Include="PlayMakerEditor">
- <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/PlayMakerEditor.dll</HintPath>
- </Reference>
- <Reference Include="PlayMakerEditor.zh-TW.resources">
- <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/zh-TW/PlayMakerEditor.zh-TW.resources.dll</HintPath>
- </Reference>
- <Reference Include="PlayMakerEditor.zh-CN.resources">
- <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/zh-CN/PlayMakerEditor.zh-CN.resources.dll</HintPath>
- </Reference>
- <Reference Include="PlayMakerEditor.es-ES.resources">
- <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/es-ES/PlayMakerEditor.es-ES.resources.dll</HintPath>
- </Reference>
- <Reference Include="PlayMakerEditor.it.resources">
- <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/it/PlayMakerEditor.it.resources.dll</HintPath>
- </Reference>
- <Reference Include="PlayMakerEditor.pt-BR.resources">
- <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/pt-BR/PlayMakerEditor.pt-BR.resources.dll</HintPath>
- </Reference>
- <Reference Include="PlayMakerEditor.de.resources">
- <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/de/PlayMakerEditor.de.resources.dll</HintPath>
- </Reference>
- <Reference Include="PlayMakerEditor.sv-SE.resources">
- <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/sv-SE/PlayMakerEditor.sv-SE.resources.dll</HintPath>
  </Reference>
  <Reference Include="Photon3Unity3D">
  <HintPath>E:/Unity by jiguk/MollyMolly/Assets/Photon Unity Networking/Plugins/PhotonNetwork/library/Photon3Unity3D.dll</HintPath>
  </Reference>
- <Reference Include="PlayMakerEditor.nl.resources">
- <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/nl/PlayMakerEditor.nl.resources.dll</HintPath>
+ <Reference Include="PlayMaker">
+ <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/PlayMaker.dll</HintPath>
  </Reference>
- <Reference Include="PlayMakerEditor.ja.resources">
- <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/ja/PlayMakerEditor.ja.resources.dll</HintPath>
+ <Reference Include="PlayMakerEditor">
+ <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/PlayMakerEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="PlayMakerEditorResources">
+ <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/PlayMakerEditorResources.dll</HintPath>
+ </Reference>
+ <Reference Include="PlayMakerEditor.de.resources">
+ <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/de/PlayMakerEditor.de.resources.dll</HintPath>
+ </Reference>
+ <Reference Include="PlayMakerEditor.es-ES.resources">
+ <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/es-ES/PlayMakerEditor.es-ES.resources.dll</HintPath>
  </Reference>
  <Reference Include="PlayMakerEditor.fr.resources">
  <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/fr/PlayMakerEditor.fr.resources.dll</HintPath>
  </Reference>
- <Reference Include="PlayMaker">
- <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/PlayMaker.dll</HintPath>
+ <Reference Include="PlayMakerEditor.it.resources">
+ <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/it/PlayMakerEditor.it.resources.dll</HintPath>
  </Reference>
- <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
- <HintPath>E:/Unity by jiguk/MollyMolly/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+ <Reference Include="PlayMakerEditor.ja.resources">
+ <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/ja/PlayMakerEditor.ja.resources.dll</HintPath>
  </Reference>
- <Reference Include="SyntaxTree.VisualStudio.Unity.Messaging">
- <HintPath>E:/Unity by jiguk/MollyMolly/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Messaging.dll</HintPath>
+ <Reference Include="PlayMakerEditor.nl.resources">
+ <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/nl/PlayMakerEditor.nl.resources.dll</HintPath>
  </Reference>
- <Reference Include="UnityVS.VersionSpecific">
- <HintPath>E:/Unity by jiguk/MollyMolly/Assets/UnityVS/Editor/UnityVS.VersionSpecific.dll</HintPath>
+ <Reference Include="PlayMakerEditor.pt-BR.resources">
+ <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/pt-BR/PlayMakerEditor.pt-BR.resources.dll</HintPath>
+ </Reference>
+ <Reference Include="PlayMakerEditor.sv-SE.resources">
+ <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/sv-SE/PlayMakerEditor.sv-SE.resources.dll</HintPath>
+ </Reference>
+ <Reference Include="PlayMakerEditor.zh-CN.resources">
+ <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/zh-CN/PlayMakerEditor.zh-CN.resources.dll</HintPath>
+ </Reference>
+ <Reference Include="PlayMakerEditor.zh-TW.resources">
+ <HintPath>E:/Unity by jiguk/MollyMolly/Assets/PlayMaker/Editor/zh-TW/PlayMakerEditor.zh-TW.resources.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>D:/Program/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
