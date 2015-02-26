@@ -3,44 +3,74 @@ using System.Collections;
 
 public class Fade : MonoBehaviour
 {
-	GUITexture Image;
-	public float Fade_Time = 2f;
-	public float Fade_Max = 1f;
-	float _time;
-	public bool FadeIn_ing = true;
-	public bool FadeOut_ing;
+    public float fadeSpeed = 1.5f;          // Speed that the screen fades to and from black.
+    
+    
+    private bool sceneStarting = true;      // Whether or not the scene is still fading in.
+    
+    
+    void Awake ()
+    {
+        // Set the texture so that it is the the size of the screen and covers it.
+        guiTexture.pixelInset = new Rect(0f, 0f, Screen.width, Screen.height);
+    }
+    
+    
+    void Update ()
+    {
+        // If the scene is starting...
+        if(sceneStarting)
+            // ... call the StartScene function.
+            StartScene();
+    }
+    
+    
+    void FadeToClear ()
+    {
+        // Lerp the colour of the texture between itself and transparent.
+        guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, fadeSpeed * Time.deltaTime);
+    }
+    
+    
+    void FadeToBlack ()
+    {
+        // Lerp the colour of the texture between itself and black.
+        guiTexture.color = Color.Lerp(guiTexture.color, Color.black, fadeSpeed * Time.deltaTime);
+    }
+    
+    
+    void StartScene ()
+    {
+        // Fade the texture to clear.
+        FadeToClear();
+        
+        // If the texture is almost clear...
+        if(guiTexture.color.a <= 0.05f)
+        {
+            // ... set the colour to clear and disable the GUITexture.
+            guiTexture.color = Color.clear;
+            guiTexture.enabled = false;
+            
+            // The scene is no longer starting.
+            sceneStarting = false;
+        }
+    }
+    
+    
+    public void EndScene ()
+    {
+        // Make sure the texture is enabled.
+        guiTexture.enabled = true;
+        
+        // Start fading towards black.
+        FadeToBlack();
+        
+        // If the screen is almost black...
+        if (guiTexture.color.a >= 0.95f)
+            Debug.Log("End");
+            // ... reload the level.
+            //Application.LoadLevel(0);
 
-	void Start ()
-	{
-		Image = GetComponent<GUITexture> ();
-	}
-
-	void Update ()
-	{
-		if (FadeIn_ing) {
-			_time += Time.deltaTime;
-			Image.color = Color.Lerp (new Color (Image.color.r, Image.color.g, Image.color.b, Fade_Max), new Color (Image.color.r, Image.color.g, Image.color.b, 0), _time / Fade_Time);
-		}
-
-		if (FadeOut_ing) {
-			_time += Time.deltaTime;
-			Image.color = Color.Lerp (new Color (Image.color.r, Image.color.g, Image.color.b, 0), new Color (Image.color.r, Image.color.g, Image.color.b, Fade_Max), _time / Fade_Time);
-		}
-
-		if (_time >= Fade_Time) {
-			_time = 0;
-			FadeIn_ing = false;
-			FadeOut_ing = false;
-		}
-	}
-
-	public void FadeIn ()
-	{
-		FadeIn_ing = true;
-	}
-
-	public void FadeOut ()
-	{
-		FadeOut_ing = true;
-	}
+        
+    }
 }

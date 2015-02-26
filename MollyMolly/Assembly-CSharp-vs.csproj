@@ -672,6 +672,7 @@
      <Compile Include="Assets\Script\Fade.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\Hole.cs" />
+     <Compile Include="Assets\Script\SceneMove.cs" />
      <Compile Include="Assets\iTween\iTween.cs" />
      <None Include="Assets\Photon Unity Networking\PlayMaker\ReleaseNotes.txt" />
      <None Include="Assets\PlayMaker\Readme.txt" />
