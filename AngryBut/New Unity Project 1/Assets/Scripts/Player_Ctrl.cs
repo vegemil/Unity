@@ -37,28 +37,31 @@ public class Player_Ctrl : MonoBehaviour {
 		float xx = Input.GetAxisRaw("Vertical");
 		float zz = Input.GetAxisRaw("Horizontal");
 
-		if(Input.GetKey(KeyCode.LeftArrow) || 
-			Input.GetKey(KeyCode.RightArrow) ||
-			Input.GetKey(KeyCode.UpArrow) ||
-			Input.GetKey(KeyCode.DownArrow))
-		{
-			lookDirection = xx * Vector3.forward + zz * Vector3.right;
-			Speed = WalkSpeed;
-			PState = PlayerState.WALK;
-
-			if(Input.GetKey(KeyCode.LeftShift) ||
-				Input.GetKey(KeyCode.RightShift))
+		if (PState!= PlayerState.ATTACK)
+        {
+	        if(Input.GetKey(KeyCode.LeftArrow) || 
+				Input.GetKey(KeyCode.RightArrow) ||
+				Input.GetKey(KeyCode.UpArrow) ||
+				Input.GetKey(KeyCode.DownArrow))
 			{
-				Speed = RunSpeed;
-				PState = PlayerState.RUN;
+				lookDirection = xx * Vector3.forward + zz * Vector3.right;
+				Speed = WalkSpeed;
+				PState = PlayerState.WALK;
+	
+				if(Input.GetKey(KeyCode.LeftShift) ||
+					Input.GetKey(KeyCode.RightShift))
+				{
+					Speed = RunSpeed;
+					PState = PlayerState.RUN;
+				}
 			}
-		}
-
-		if(xx == 0 && zz == 0 && PState!= PlayerState.IDLE)
-		{
-			PState = PlayerState.IDLE;
-			Speed = 0f;
-		}
+	
+			if(xx == 0 && zz == 0 && PState!= PlayerState.IDLE)
+			{
+				PState = PlayerState.IDLE;
+				Speed = 0f;
+			}
+        }
 
 		if(Input.GetKeyDown(KeyCode.Space) && PState != PlayerState.DEAD)
 		{
@@ -111,9 +114,14 @@ public class Player_Ctrl : MonoBehaviour {
 
 		ShotFx.SetActive(true);
 
-		yield return new WaitForSeconds(0.15f);
+        PState = PlayerState.ATTACK;
+        Speed = 0f;
 
+		yield return new WaitForSeconds(0.15f);
 		ShotFx.SetActive(false);
+
+        yield return new WaitForSeconds(0.15f);
+        PState = PlayerState.IDLE;
 	}
 
 	// Use this for initialization

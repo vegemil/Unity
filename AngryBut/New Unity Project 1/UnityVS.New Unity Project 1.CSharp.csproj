@@ -55,11 +55,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Basic_Move.cs" />
+    <Compile Include="Assets\Scripts\BillBoard.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Follow.cs" />
     <Compile Include="Assets\Scripts\GunFX.cs" />
     <Compile Include="Assets\Scripts\Mouse_Ctrl.cs" />
     <Compile Include="Assets\Scripts\Move.cs" />
     <Compile Include="Assets\Scripts\Player_Ctrl.cs" />
+    <Compile Include="Assets\Scripts\RotateSelf.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AngryBots\Resources\BlurPassesForDof.shader" />
