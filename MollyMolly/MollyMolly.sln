@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{1DAC1A45-CFD0-AF65-EBA6-A6BEE2BE8B90}") = "MollyMolly", "Assembly-CSharp.csproj", "{FAA16FFE-9533-94D1-F5C2-1F88BD0ACCBE}"
 EndProject
-Project("{1DAC1A45-CFD0-AF65-EBA6-A6BEE2BE8B90}") = "MollyMolly", "Assembly-CSharp-Editor.csproj", "{2FCC507E-B40A-D355-BFA9-1B5AD8AE7427}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,15 +13,11 @@ Global
 		{FAA16FFE-9533-94D1-F5C2-1F88BD0ACCBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAA16FFE-9533-94D1-F5C2-1F88BD0ACCBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAA16FFE-9533-94D1-F5C2-1F88BD0ACCBE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2FCC507E-B40A-D355-BFA9-1B5AD8AE7427}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2FCC507E-B40A-D355-BFA9-1B5AD8AE7427}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2FCC507E-B40A-D355-BFA9-1B5AD8AE7427}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2FCC507E-B40A-D355-BFA9-1B5AD8AE7427}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																GlobalSection(MonoDevelopProperties) = preSolution
+																																										GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

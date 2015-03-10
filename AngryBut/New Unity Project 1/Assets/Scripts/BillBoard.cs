@@ -3,15 +3,15 @@ using System.Collections;
 
 public class BillBoard : MonoBehaviour {
 
-    public Transform Target;
+	Transform Target;
 
 	// Use this for initialization
 	void Start () {
-        Target = Camera.main.gameObject.transform;	
+		Target = Camera.main.gameObject.transform;	
 	}
 	
 	// Update is called once per frame
 	void LateUpdate () {
-        transform.rotation = Quaternion.LookRotation(Target.forward, Target.up);
+		transform.rotation = Quaternion.LookRotation(Target.forward, Target.up);
 	}
 }

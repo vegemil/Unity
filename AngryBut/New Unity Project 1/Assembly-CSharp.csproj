@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\PlayManager.cs" />
      <Compile Include="Assets\Scripts\Basic_Move.cs" />
      <Compile Include="Assets\Scripts\BillBoard.cs" />
      <Compile Include="Assets\Scripts\Bullet.cs" />
