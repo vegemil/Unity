@@ -13,11 +13,16 @@ public class PlayManager : MonoBehaviour {
 	public GameObject FinalUI;
 	public Text FinalMessage;
 	public Text FinalScoreLabel;
+	public Text PlayerName;
+
+	float score;
+
 	
 	// Use this for initialization
 	void Start () {
 		EnemyLabel.text = string.Format("Enemy : {0}", Enemy_Count);
 		TimeLabel.text = string.Format("Time : {0:N2}", Limit_Time);
+		PlayerName.text = PlayerPrefs.GetString("UserName");
 	}
 	
 	// Update is called once per frame
@@ -46,10 +51,12 @@ public class PlayManager : MonoBehaviour {
 
 			Player_Ctrl PlayerCtrl = GameObject.Find("Player").GetComponent<Player_Ctrl>();
 
-			float score = 12345f + Limit_Time * 123f + PlayerCtrl.hp * 123f;
+			score = 12345f + Limit_Time * 123f + PlayerCtrl.hp * 123f;
 			FinalScoreLabel.text = string.Format("{0:N0}", score);
 
 			FinalUI.SetActive(true);
+
+			BestCheck();
 
 		}
 	}
@@ -61,12 +68,14 @@ public class PlayManager : MonoBehaviour {
 			Time.timeScale = 0;
 			PlayEnd = true;
 			FinalMessage.text = "Fail...";
-			float score = 1234f + Enemy_Count * 123f;
+			score = 1234f + Enemy_Count * 123f;
 			FinalScoreLabel.text = string.Format("{0:N0}", score);
 			FinalUI.SetActive(true);
 
 			Player_Ctrl PlayerCtrl = GameObject.Find("Player").GetComponent<Player_Ctrl>();
 			PlayerCtrl.PState = PlayerState.DEAD;
+
+			BestCheck();
 		}
 	}
 
@@ -90,6 +99,16 @@ public class PlayManager : MonoBehaviour {
 		if(Enemy_Count <=0)
 		{
 			Clear();
+		}
+	}
+	public void BestCheck()
+	{
+		float BestScore = PlayerPrefs.GetFloat("BestScore");
+
+		if(score>BestScore)
+		{
+			PlayerPrefs.SetFloat("BestScore", score);
+			PlayerPrefs.SetString("BestPlayer", PlayerPrefs.GetString("UserName"));
 		}
 	}
 }
