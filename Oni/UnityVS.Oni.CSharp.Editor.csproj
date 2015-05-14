@@ -168,6 +168,7 @@
     <Compile Include="Assets\PlayMaker\Editor\FsmTemplate.cs" />
     <Compile Include="Assets\PlayMaker\Editor\FsmTemplateEditor.cs" />
     <Compile Include="Assets\PlayMaker\Editor\FsmTemplateWindow.cs" />
+    <Compile Include="Assets\PlayMaker\Editor\PlayMakerAutoUpdater.cs" />
     <Compile Include="Assets\PlayMaker\Editor\PlayMakerBugReportWindow.cs" />
     <Compile Include="Assets\PlayMaker\Editor\PlayMakerCustomActionWizard.cs" />
     <Compile Include="Assets\PlayMaker\Editor\PlayMakerGUIInspector.cs" />

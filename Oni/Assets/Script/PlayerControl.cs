@@ -6,10 +6,12 @@ public class PlayerControl : MonoBehaviour {
 	public float Speed = 1.0f;
 	public GameObject[] horses;
 
-    public float Rezentime = 5;
+	public float Rezentime = 5;
 
-    public float RezenMaxdistance = 10;
-    public float RezenMindistance = 5;
+	public float RezenMaxdistance = 10;
+	public float RezenMindistance = 5;
+
+	public int Count = 0;
 
 	float time = 0;
 	public enum Status
@@ -21,7 +23,6 @@ public class PlayerControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
 	}
 	
 	// Update is called once per frame
@@ -30,9 +31,9 @@ public class PlayerControl : MonoBehaviour {
 
 		time += Time.deltaTime;
 
-        if (time >= Rezentime)
+		if (time >= Rezentime)
 		{
-            RezenHorse();
+			RezenHorse();
 			time = 0;
 		}
 	}
@@ -44,7 +45,7 @@ public class PlayerControl : MonoBehaviour {
 		{
 			if(horses[i].activeInHierarchy == false)
 			{
-                horses[i].transform.position = new Vector3(0, 1.4f, this.gameObject.transform.position.z + Random.Range(RezenMindistance, RezenMaxdistance));
+				horses[i].transform.position = new Vector3(0, 1.3f, this.gameObject.transform.position.z + Random.Range(RezenMindistance, RezenMaxdistance));
 				horses[i].SetActive(true);
 
 				break;
@@ -53,7 +54,7 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	//플레이어로 부터 가장 멀리 있는 말머리를 찾음
-	private GameObject FindHorse()
+	GameObject FindHorse()
 	{
 		float distance = 0;
 		GameObject horse = horses[0];
@@ -72,5 +73,8 @@ public class PlayerControl : MonoBehaviour {
 
 		return horse;
 	}
+
+
+	
 
 }

@@ -616,6 +616,7 @@
     <Compile Include="Assets\PlayMaker\Actions\iTween\iTweenShakeScale.cs" />
     <Compile Include="Assets\PlayMaker\Actions\iTween\iTweenStop.cs" />
     <Compile Include="Assets\PlayMaker\Include\iTweenFSMEvents.cs" />
+    <Compile Include="Assets\Script\ColliderCheck.cs" />
     <Compile Include="Assets\Script\FloorLotation.cs" />
     <Compile Include="Assets\Script\HorseControl.cs" />
     <Compile Include="Assets\Script\MouseControl.cs" />
