@@ -33,6 +33,7 @@ public class PlayerControl : MonoBehaviour {
 
 		if (time >= Rezentime)
 		{
+			Debug.Log("rezen");
 			RezenHorse();
 			time = 0;
 		}
@@ -45,7 +46,20 @@ public class PlayerControl : MonoBehaviour {
 		{
 			if(horses[i].activeInHierarchy == false)
 			{
-				horses[i].transform.position = new Vector3(0, 1.3f, this.gameObject.transform.position.z + Random.Range(RezenMindistance, RezenMaxdistance));
+// 				horses[i].transform.FindChild("horse_mask").gameObject.transform.position = new Vector3(0, -0.02052951f, 0.005240204f);
+
+				horses[i].transform.position = new Vector3(0,1.35f, this.gameObject.transform.position.z + Random.Range(RezenMindistance, RezenMaxdistance));
+                horses[i].gameObject.transform.FindChild("horse_mask").gameObject.transform.rotation = new Quaternion(0, 1, 0, 0);
+
+				horses[i].gameObject.transform.FindChild("horse_mask").gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+				horses[i].gameObject.transform.FindChild("horse_mask").gameObject.GetComponent<Rigidbody>().WakeUp();
+
+				Debug.Log("1-1." + horses[i].transform.position);
+                Debug.Log("1-2." + horses[i].transform.rotation);
+				Debug.Log("2-1." + horses[i].gameObject.transform.FindChild("horse_mask").gameObject.transform.position);
+                Debug.Log("2-2" + horses[i].gameObject.transform.FindChild("horse_mask").gameObject.transform.rotation);
+
+
 				horses[i].SetActive(true);
 
 				break;
