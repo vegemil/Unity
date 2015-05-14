@@ -6,6 +6,11 @@ public class PlayerControl : MonoBehaviour {
 	public float Speed = 1.0f;
 	public GameObject[] horses;
 
+    public float Rezentime = 5;
+
+    public float RezenMaxdistance = 10;
+    public float RezenMindistance = 5;
+
 	float time = 0;
 	public enum Status
 	{
@@ -25,33 +30,26 @@ public class PlayerControl : MonoBehaviour {
 
 		time += Time.deltaTime;
 
-        Debug.Log(time);
-
-		if(time >=7)
+        if (time >= Rezentime)
 		{
-			StartCoroutine("RezenHorse");
+            RezenHorse();
 			time = 0;
 		}
 	}
 
 	//말머리 만듬
-	IEnumerator RezenHorse()
+	void RezenHorse()
 	{
-// 		yield return new WaitForSeconds(5);
-
 		for(int i = 0; i<horses.Length; i++)
 		{
 			if(horses[i].activeInHierarchy == false)
 			{
-// 				horses[i].transform.position = new Vector3(0, 1.4f,  + FindHorse().transform.position.z + Random.Range(5, 20));
-				horses[i].transform.position = new Vector3(0, 1.4f, this.gameObject.transform.position.z + Random.Range(5, 20));
+                horses[i].transform.position = new Vector3(0, 1.4f, this.gameObject.transform.position.z + Random.Range(RezenMindistance, RezenMaxdistance));
 				horses[i].SetActive(true);
 
 				break;
 			}
 		}
-
-        yield return null;
 	}
 
 	//플레이어로 부터 가장 멀리 있는 말머리를 찾음

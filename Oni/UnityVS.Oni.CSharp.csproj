@@ -618,6 +618,7 @@
     <Compile Include="Assets\PlayMaker\Include\iTweenFSMEvents.cs" />
     <Compile Include="Assets\Script\FloorLotation.cs" />
     <Compile Include="Assets\Script\HorseControl.cs" />
+    <Compile Include="Assets\Script\MouseControl.cs" />
     <Compile Include="Assets\Script\PlayerControl.cs" />
     <Compile Include="Assets\SimpleParticlePack\Scripts\ParticleTester.cs" />
     <Compile Include="Assets\UnityChan\Scripts\AutoBlink.cs" />
