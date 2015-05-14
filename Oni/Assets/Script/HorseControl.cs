@@ -26,6 +26,15 @@ public class HorseControl : MonoBehaviour {
             HorseMask.transform.FindChild("horse_mask").gameObject.transform.rotation = new Quaternion(5f, 0, 0, 0);
 
 			HorseMask.SetActive(false);
+
+            PlayerControl.Count = 0;
+            PlayerControl.RezenMaxdistance = 10.0f;
+            PlayerControl.Rezentime = 7.0f;
+
+            Debug.Log("Count : " + PlayerControl.Count);
+            Debug.Log("RezenTime : " + PlayerControl.Rezentime);
+            Debug.Log("RezenMaxdistance : " + PlayerControl.RezenMaxdistance);
+
 		}
 	}
 

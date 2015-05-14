@@ -6,14 +6,59 @@ public class PlayerControl : MonoBehaviour {
 	public float Speed = 1.0f;
 	public GameObject[] horses;
 
-	public float Rezentime = 5;
+	private static float rezentime = 5.0f;
+	public static float Rezentime
+	{
+		get
+		{
+			return rezentime;
+		}
+		set
+		{
+			rezentime = value;
+		}
+	}
+	
 
-	public float RezenMaxdistance = 10;
-	public float RezenMindistance = 5;
+	private static float rezenMaxdistance = 10.0f;
+	public static float RezenMaxdistance
+	{
+		get
+		{
+			return rezenMaxdistance;
+		}
+		set
+		{
+			rezenMaxdistance = value;
+		}
+	}
+	private static float rezenMindistance = 5.0f;
+	public static float RezenMindistance
+	{
+		get
+		{
+			return rezenMindistance;
+		}
+		set
+		{
+			rezenMindistance = value;
+		}
+	}
 
-	public int Count = 0;
+	private static int count = 0;
+	public static int Count
+	{
+		get
+		{
+			return count;
+		}
+		set
+		{
+			count = value;
+		}
+	}
 
-	float time = 0;
+	float time = 0.0f;
 	public enum Status
 	{
 		IDLE,
@@ -33,7 +78,7 @@ public class PlayerControl : MonoBehaviour {
 
 		if (time >= Rezentime)
 		{
-			Debug.Log("rezen");
+// 			Debug.Log("rezen");
 			RezenHorse();
 			time = 0;
 		}
@@ -49,7 +94,7 @@ public class PlayerControl : MonoBehaviour {
 // 				horses[i].transform.FindChild("horse_mask").gameObject.transform.position = new Vector3(0, -0.02052951f, 0.005240204f);
 
 				horses[i].transform.position = new Vector3(0,1.35f, this.gameObject.transform.position.z + Random.Range(RezenMindistance, RezenMaxdistance));
-                horses[i].gameObject.transform.FindChild("horse_mask").gameObject.transform.rotation = new Quaternion(0, 1, 0, 0);
+				horses[i].gameObject.transform.FindChild("horse_mask").gameObject.transform.rotation = new Quaternion(0, 1, 0, 0);
 
 				horses[i].gameObject.transform.FindChild("horse_mask").gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 				horses[i].gameObject.transform.FindChild("horse_mask").gameObject.GetComponent<Rigidbody>().WakeUp();
