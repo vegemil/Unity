@@ -54,10 +54,10 @@ public class PlayerControl : MonoBehaviour {
 				horses[i].gameObject.transform.FindChild("horse_mask").gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 				horses[i].gameObject.transform.FindChild("horse_mask").gameObject.GetComponent<Rigidbody>().WakeUp();
 
-				Debug.Log("1-1." + horses[i].transform.position);
-                Debug.Log("1-2." + horses[i].transform.rotation);
-				Debug.Log("2-1." + horses[i].gameObject.transform.FindChild("horse_mask").gameObject.transform.position);
-                Debug.Log("2-2" + horses[i].gameObject.transform.FindChild("horse_mask").gameObject.transform.rotation);
+// 				Debug.Log("1-1." + horses[i].transform.position);
+//                 Debug.Log("1-2." + horses[i].transform.rotation);
+// 				Debug.Log("2-1." + horses[i].gameObject.transform.FindChild("horse_mask").gameObject.transform.position);
+//                 Debug.Log("2-2" + horses[i].gameObject.transform.FindChild("horse_mask").gameObject.transform.rotation);
 
 
 				horses[i].SetActive(true);
