@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ColliderCheck : MonoBehaviour {
 	public float radius = 5f;
@@ -9,6 +10,9 @@ public class ColliderCheck : MonoBehaviour {
 	AudioSource audio;
 
 	Rigidbody rigidbody;
+
+	public Text comboText;
+	public Text countText;
 
 	// Use this for initialization
 	void Start () {
@@ -29,8 +33,9 @@ public class ColliderCheck : MonoBehaviour {
 
 		rigidbody.AddExplosionForce(power, collision.gameObject.transform.position, radius);
 
+		PlayerControl.ComboCount += 1;
 		PlayerControl.Count += 1;
-		if(PlayerControl.Count >= 3)
+		if(PlayerControl.ComboCount >= 3)
 		{
 			if(PlayerControl.Rezentime <=3)
 			{
@@ -41,9 +46,25 @@ public class ColliderCheck : MonoBehaviour {
 				PlayerControl.Rezentime -= 1;
 		}
 
-		Debug.Log("Count : " + PlayerControl.Count);
+		if(PlayerControl.ComboCount >=2)
+		{
+			StartCoroutine("TextEffect");
+		}
+		
+		Debug.Log("Count : " + PlayerControl.ComboCount);
 		Debug.Log("RezenTime : " + PlayerControl.Rezentime);
 		Debug.Log("RezenMaxdistance : " + PlayerControl.RezenMaxdistance);
+
+		countText.text = PlayerControl.Count.ToString("00");
+	}
+
+
+	IEnumerator TextEffect()
+	{
+		comboText.text = "콤보" + PlayerControl.ComboCount;
+		comboText.gameObject.SetActive(true);
+		yield return new WaitForSeconds(1);
+		comboText.gameObject.SetActive(false);
 	}
 
 }

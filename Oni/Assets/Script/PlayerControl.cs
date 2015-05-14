@@ -45,26 +45,32 @@ public class PlayerControl : MonoBehaviour {
 		}
 	}
 
-	private static int count = 0;
-	public static int Count
+	private static int combocount = 0;
+	public static int ComboCount
 	{
 		get
 		{
-			return count;
+			return combocount;
 		}
+		set
+		{
+			combocount = value;
+		}
+	}
+	private static int count;
+	public static int Count
+	{
 		set
 		{
 			count = value;
 		}
+		get
+		{
+			return count;
+		}
 	}
 
 	float time = 0.0f;
-	public enum Status
-	{
-		IDLE,
-		ATTACK,
-		DEAD
-	}
 
 	// Use this for initialization
 	void Start () {

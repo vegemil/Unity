@@ -27,11 +27,11 @@ public class HorseControl : MonoBehaviour {
 
 			HorseMask.SetActive(false);
 
-            PlayerControl.Count = 0;
+            PlayerControl.ComboCount = 0;
             PlayerControl.RezenMaxdistance = 10.0f;
             PlayerControl.Rezentime = 7.0f;
 
-            Debug.Log("Count : " + PlayerControl.Count);
+            Debug.Log("Count : " + PlayerControl.ComboCount);
             Debug.Log("RezenTime : " + PlayerControl.Rezentime);
             Debug.Log("RezenMaxdistance : " + PlayerControl.RezenMaxdistance);
 
