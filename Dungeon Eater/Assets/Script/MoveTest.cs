@@ -3,22 +3,143 @@ using System.Collections;
 
 public class MoveTest : MonoBehaviour {
 
-    public float speed = 1.0F;
-    public float rotationSpeed = 100.0F;
+	public float speed = 1.0F;
+	public float grid = 1.0f;
+	public float rotationSpeed = 100.0F;
 
-	// Use this for initialization
-	void Start () {
-	
+	[SerializeField]
+	 Direction direction = Direction.NONE;
+
+	Vector3 startPosition;
+	Vector3 endPosition = Vector3.zero;
+    Vector3 dir = Vector3.zero;
+
+	Hashtable hash = new Hashtable();
+
+    bool isMoving = false;
+
+
+	enum Direction
+	{
+		LEFT,
+		RIGHT,
+		FORWARD,
+		BACK,
+		NONE
+	};
+
+	Animator animator;
+	void Start()
+	{
+		animator = GetComponent<Animator>();
 	}
+
 	
 	// Update is called once per frame
 	
-    void Update() {
-        float translation = Input.GetAxis("Vertical") * speed;
-        float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
-        translation *= Time.deltaTime;
-        rotation *= Time.deltaTime;
-        transform.Translate(0, 0, translation);
-        transform.Rotate(0, rotation, 0);
+	void Update() {
+		if (Input.GetKeyDown(KeyCode.DownArrow))
+			direction = Direction.BACK;
+		else if (Input.GetKeyDown(KeyCode.LeftArrow))
+			direction = Direction.LEFT;
+		else if (Input.GetKeyDown(KeyCode.RightArrow))
+			direction = Direction.RIGHT;
+		else if (Input.GetKeyDown(KeyCode.UpArrow))
+			direction = Direction.FORWARD;
+
+        if(isMoving == false)
+            Move();
+	}
+
+	void Move()
+	{
+        isMoving = true;
+		startPosition = transform.position;
+		
+
+		switch(direction)
+		{
+			case Direction.LEFT:
+				hash.Clear();
+				endPosition = startPosition + transform.right * grid * -1;
+
+                dir = endPosition - startPosition;
+                dir.y = 0.0f;
+			    dir.Normalize();
+
+			    transform.rotation = Quaternion.Lerp(transform.rotation,
+																     Quaternion.LookRotation(dir),
+															    	  rotationSpeed);
+
+
+                hash.Clear();
+				hash.Add("position", endPosition);
+				hash.Add("speed", speed);
+				hash.Add("easetype", iTween.EaseType.linear);
+				iTween.MoveTo(gameObject, hash);
+
+				animator.SetTrigger("Move");
+
+				break;
+			case Direction.RIGHT:
+
+                hash.Clear();
+				endPosition = startPosition + transform.right * grid;
+
+				dir = endPosition - startPosition;
+                dir.y = 0.0f;
+			    dir.Normalize();
+			    transform.rotation = Quaternion.Lerp(transform.rotation,
+																     Quaternion.LookRotation(dir),
+															    	  rotationSpeed);
+
+				hash.Add("position", endPosition);
+				hash.Add("speed", speed);
+				hash.Add("easetype", iTween.EaseType.linear);
+				iTween.MoveTo(gameObject, hash);
+
+				animator.SetTrigger("Move");
+				break;
+			case Direction.FORWARD:
+
+				hash.Clear();
+
+				endPosition = startPosition + transform.forward * grid;
+
+				hash.Add("position", endPosition);
+				hash.Add("speed", speed);
+				hash.Add("easetype", iTween.EaseType.linear);
+				iTween.MoveTo(gameObject, hash);
+
+				animator.SetTrigger("Move");
+				break;
+
+			case Direction.BACK:
+
+				hash.Clear();
+				endPosition = startPosition + transform.forward * grid * -1;
+
+				dir = endPosition - startPosition;
+                dir.y = 0.0f;
+			    dir.Normalize();
+			    transform.rotation = Quaternion.Lerp(transform.rotation,
+																     Quaternion.LookRotation(dir),
+															    	  rotationSpeed);
+
+				hash.Add("position", endPosition);
+				hash.Add("speed", speed);
+				hash.Add("easetype", iTween.EaseType.linear);
+				iTween.MoveTo(gameObject, hash);
+
+				animator.SetTrigger("Move");
+				break;
+
+		}
+
+        transform.position = new Vector3(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y), Mathf.Round(transform.position.z));
+        transform.rotation = new Quaternion(Mathf.Round(transform.rotation.x), Mathf.Round(transform.rotation.y), Mathf.Round(transform.rotation.z), Mathf.Round(transform.rotation.w));
+
+		direction = Direction.NONE;
+        isMoving = false;
 	}
 }

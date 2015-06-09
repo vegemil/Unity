@@ -33,7 +33,7 @@ class GridMove : MonoBehaviour
 	{
 		Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
 
-        transform.forward = forward * 0.1f;
+		transform.forward = forward * 0.1f;
 		Debug.Log("transform.forward : " + transform.forward);
 		Debug.DrawRay(transform.position, forward, Color.green);
 
