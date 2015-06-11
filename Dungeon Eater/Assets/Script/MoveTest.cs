@@ -12,12 +12,9 @@ public class MoveTest : MonoBehaviour {
 
 	Vector3 startPosition;
 	Vector3 endPosition = Vector3.zero;
-    Vector3 dir = Vector3.zero;
+	Vector3 dir = Vector3.zero;
 
 	Hashtable hash = new Hashtable();
-
-    bool isMoving = false;
-
 
 	enum Direction
 	{
@@ -29,14 +26,16 @@ public class MoveTest : MonoBehaviour {
 	};
 
 	Animator animator;
+
+   public bool isColliderHit = false;
+   public Transform beforeTransform;
+
 	void Start()
 	{
 		animator = GetComponent<Animator>();
 	}
-
 	
 	// Update is called once per frame
-	
 	void Update() {
 		if (Input.GetKeyDown(KeyCode.DownArrow))
 			direction = Direction.BACK;
@@ -47,13 +46,12 @@ public class MoveTest : MonoBehaviour {
 		else if (Input.GetKeyDown(KeyCode.UpArrow))
 			direction = Direction.FORWARD;
 
-        if(isMoving == false)
-            Move();
+		if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Walking@loop")&& isColliderHit != true)
+			Move();
 	}
 
 	void Move()
 	{
-        isMoving = true;
 		startPosition = transform.position;
 		
 
@@ -63,16 +61,16 @@ public class MoveTest : MonoBehaviour {
 				hash.Clear();
 				endPosition = startPosition + transform.right * grid * -1;
 
-                dir = endPosition - startPosition;
-                dir.y = 0.0f;
-			    dir.Normalize();
+				dir = endPosition - startPosition;
+				dir.y = 0.0f;
+				dir.Normalize();
 
-			    transform.rotation = Quaternion.Lerp(transform.rotation,
-																     Quaternion.LookRotation(dir),
-															    	  rotationSpeed);
+				transform.rotation = Quaternion.Lerp(transform.rotation,
+																	 Quaternion.LookRotation(dir),
+																	  rotationSpeed);
 
 
-                hash.Clear();
+				hash.Clear();
 				hash.Add("position", endPosition);
 				hash.Add("speed", speed);
 				hash.Add("easetype", iTween.EaseType.linear);
@@ -83,15 +81,15 @@ public class MoveTest : MonoBehaviour {
 				break;
 			case Direction.RIGHT:
 
-                hash.Clear();
+				hash.Clear();
 				endPosition = startPosition + transform.right * grid;
 
 				dir = endPosition - startPosition;
-                dir.y = 0.0f;
-			    dir.Normalize();
-			    transform.rotation = Quaternion.Lerp(transform.rotation,
-																     Quaternion.LookRotation(dir),
-															    	  rotationSpeed);
+				dir.y = 0.0f;
+				dir.Normalize();
+				transform.rotation = Quaternion.Lerp(transform.rotation,
+																	 Quaternion.LookRotation(dir),
+																	  rotationSpeed);
 
 				hash.Add("position", endPosition);
 				hash.Add("speed", speed);
@@ -120,11 +118,11 @@ public class MoveTest : MonoBehaviour {
 				endPosition = startPosition + transform.forward * grid * -1;
 
 				dir = endPosition - startPosition;
-                dir.y = 0.0f;
-			    dir.Normalize();
-			    transform.rotation = Quaternion.Lerp(transform.rotation,
-																     Quaternion.LookRotation(dir),
-															    	  rotationSpeed);
+				dir.y = 0.0f;
+				dir.Normalize();
+				transform.rotation = Quaternion.Lerp(transform.rotation,
+																	 Quaternion.LookRotation(dir),
+																	  rotationSpeed);
 
 				hash.Add("position", endPosition);
 				hash.Add("speed", speed);
@@ -133,13 +131,12 @@ public class MoveTest : MonoBehaviour {
 
 				animator.SetTrigger("Move");
 				break;
-
 		}
 
-        transform.position = new Vector3(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y), Mathf.Round(transform.position.z));
-        transform.rotation = new Quaternion(Mathf.Round(transform.rotation.x), Mathf.Round(transform.rotation.y), Mathf.Round(transform.rotation.z), Mathf.Round(transform.rotation.w));
+		transform.position = new Vector3(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y), Mathf.Round(transform.position.z));
+		transform.rotation = new Quaternion(Mathf.Round(transform.rotation.x), Mathf.Round(transform.rotation.y), Mathf.Round(transform.rotation.z), Mathf.Round(transform.rotation.w));
 
 		direction = Direction.NONE;
-        isMoving = false;
+		
 	}
 }
