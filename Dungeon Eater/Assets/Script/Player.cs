@@ -42,6 +42,7 @@ public class Player : MonoBehaviour {
 		else if (collision.gameObject.transform.name.Contains("Sword"))
 		{
 			ItHasSword = true;
+            Destroy(collision.gameObject);
 		}
 
 	}

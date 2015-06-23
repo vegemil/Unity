@@ -6,10 +6,10 @@ public class Map : MonoBehaviour {
 	public TextAsset map_textAsset;
 	string[] maptext;
 
-	int width;
-	int height;
+	public int width;
+	public int height;
 
-	char[,] mapdata;
+	public char[,] mapdata;
 
 	public GameObject jewel;
 	public GameObject block;
@@ -20,6 +20,8 @@ public class Map : MonoBehaviour {
 	GameObject Planes;
 	GameObject Jewels;
 	GameObject Blocks;
+
+    public bool IsMapSetting = false;
 
 
 	enum MAPFORMAT
@@ -68,6 +70,7 @@ public class Map : MonoBehaviour {
 			}
 		}
 
+        IsMapSetting = true;
 		CreateMap();
 
 		
@@ -121,4 +124,6 @@ public class Map : MonoBehaviour {
 		}
 		return null;
 	}
+
+    
 }

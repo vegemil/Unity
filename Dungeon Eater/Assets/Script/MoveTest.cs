@@ -54,7 +54,6 @@ public class MoveTest : MonoBehaviour {
 	{
 		startPosition = transform.position;
 		
-
 		switch(direction)
 		{
 			case Direction.LEFT:
