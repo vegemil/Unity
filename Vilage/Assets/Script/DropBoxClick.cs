@@ -6,13 +6,16 @@ public class DropBoxClick : MonoBehaviour {
 
     private Dropdown dropdown;
     //private Image image;
-
+    private GameObject houses;
 
 	// Use this for initialization
 	void Start () {
         //image = GetComponent<Image>();
         dropdown = GetComponent<Dropdown>();
         dropdown.onValueChanged.AddListener(DropdownValueChange);
+
+        houses = new GameObject();
+        houses.transform.name = "Houses";
 
 	}
 	
@@ -28,6 +31,7 @@ public class DropBoxClick : MonoBehaviour {
         GameObject prefab = Resources.Load("Prefab/" + dropdown.options[value].image.name)as GameObject;
         GameObject house = Instantiate(prefab) as GameObject;
 
+        house.transform.parent = houses.transform;
 
     }
 }
