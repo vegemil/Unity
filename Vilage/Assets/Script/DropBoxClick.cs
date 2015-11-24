@@ -32,6 +32,7 @@ public class DropBoxClick : MonoBehaviour {
         GameObject house = Instantiate(prefab) as GameObject;
 
         house.transform.parent = houses.transform;
+        house.transform.position = new Vector3(0, 0.2f, 0);
 
     }
 }
