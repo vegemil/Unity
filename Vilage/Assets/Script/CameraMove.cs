@@ -9,9 +9,13 @@ public class CameraMove : MonoBehaviour
 
     public float rotateSpeed = 20;
     public float moveSpeed = 10;
+    public float zoomSpeed = 10;
 
     public float horizontalSpeed = 2.0F;
     public float verticalSpeed = 2.0F;
+
+    public float MaxCameraSize = 15;
+    public float MinCameraSize = 5;
 
     public Vector3 target;
 
@@ -22,6 +26,14 @@ public class CameraMove : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        RightMouseButtonClick();
+        LeftMouseButtonClick();
+        WheelMouseScroll();
+
+    }
+
+    void RightMouseButtonClick()
     {
         if (Input.GetMouseButtonDown(1))
         {
@@ -34,11 +46,14 @@ public class CameraMove : MonoBehaviour
 
             transform.LookAt(transform.position);
 
-            transform.RotateAround(target, new Vector3(v * -1f, h * -1f, 0), Time.deltaTime * rotateSpeed);
+            transform.RotateAround(target, new Vector3(v, h, 0), Time.deltaTime * rotateSpeed);
 
             lastPosition = Input.mousePosition;
         }
+    }
 
+    void LeftMouseButtonClick()
+    {
         if (Input.GetMouseButtonDown(0))
         {
             lastPosition = Input.mousePosition;
@@ -54,18 +69,22 @@ public class CameraMove : MonoBehaviour
 
             lastPosition = Input.mousePosition;
         }
-
     }
 
-//    public void OnMouseDown()
-//    {
-//        if()
-
-//        mouseDownPosition = Input.mousePosition;
-//    }
-
-//    public void OnMouseUp()
-//    {
-//        mouseUpPosition = Input.mousePosition;
-//    }
+    void WheelMouseScroll()
+    {
+        
+        if ((Camera.main.orthographicSize + (Input.GetAxis("Mouse ScrollWheel") * zoomSpeed)) > MaxCameraSize)
+        {
+            Camera.main.orthographicSize = MaxCameraSize;
+        }
+        else if((Camera.main.orthographicSize + (Input.GetAxis("Mouse ScrollWheel") * zoomSpeed)) < MinCameraSize)
+        {
+            Camera.main.orthographicSize = MinCameraSize;
+        }
+        else
+        {
+            Camera.main.orthographicSize += Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+        }
+    }
 }
