@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vilage.CSharp.Plugins", "Vilage.CSharp.Plugins.csproj", "{0488A809-6DC1-A010-2B4C-AFCB7245A809}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vilage.CSharp", "Vilage.CSharp.csproj", "{CBE42F66-8ECF-621B-7531-E40A6FEBA4C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vilage.CSharp.Editor", "Vilage.CSharp.Editor.csproj", "{222CD458-923B-9FD4-B755-ECFE05632162}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0488A809-6DC1-A010-2B4C-AFCB7245A809}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0488A809-6DC1-A010-2B4C-AFCB7245A809}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0488A809-6DC1-A010-2B4C-AFCB7245A809}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0488A809-6DC1-A010-2B4C-AFCB7245A809}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CBE42F66-8ECF-621B-7531-E40A6FEBA4C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CBE42F66-8ECF-621B-7531-E40A6FEBA4C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBE42F66-8ECF-621B-7531-E40A6FEBA4C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBE42F66-8ECF-621B-7531-E40A6FEBA4C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{222CD458-923B-9FD4-B755-ECFE05632162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{222CD458-923B-9FD4-B755-ECFE05632162}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{222CD458-923B-9FD4-B755-ECFE05632162}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{222CD458-923B-9FD4-B755-ECFE05632162}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

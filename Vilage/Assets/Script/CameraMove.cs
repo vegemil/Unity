@@ -19,6 +19,9 @@ public class CameraMove : MonoBehaviour
 
     public Vector3 target;
 
+    private RaycastHit hit;
+    private Ray ray;
+
     // Use this for initialization
     void Start()
     {
@@ -27,9 +30,22 @@ public class CameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RightMouseButtonClick();
-        LeftMouseButtonClick();
-        WheelMouseScroll();
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if(Physics.Raycast(ray, out hit))
+        {
+            //Debug.Log(hit.transform.gameObject.name);
+            if (hit.transform.gameObject.layer == 5)
+                return;
+            else if (hit.transform.gameObject.tag == "Obj")
+                return;
+            else
+            {
+                RightMouseButtonClick();
+                LeftMouseButtonClick();
+                WheelMouseScroll();
+            }
+        }
+        
 
     }
 
@@ -62,8 +78,8 @@ public class CameraMove : MonoBehaviour
         {
             delta = Input.mousePosition - lastPosition;
 
-            Debug.Log("delta X : " + delta.x);
-            Debug.Log("delta Y : " + delta.y);
+            //Debug.Log("delta X : " + delta.x);
+            //Debug.Log("delta Y : " + delta.y);
 
             transform.Translate(delta * Time.deltaTime * moveSpeed);
 
