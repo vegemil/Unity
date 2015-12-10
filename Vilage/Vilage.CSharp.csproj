@@ -88,8 +88,8 @@
     <Compile Include="Assets\Script\CameraMove.cs" />
     <Compile Include="Assets\Script\DropBoxClick.cs" />
     <Compile Include="Assets\Script\DropdownHorizontalFitter.cs" />
+    <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\ObjControl.cs" />
-    <Compile Include="Assets\Script\UIManager.cs" />
     <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EditorLabel.cs" />
     <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EnableCameraDepthInForward.cs" />
     <Compile Include="Assets\ShaderForge\Example Assets\Scripts\SoftNormalsToVertexColor.cs" />

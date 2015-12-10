@@ -33,20 +33,23 @@ public class CameraMove : MonoBehaviour
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out hit))
         {
-            //Debug.Log(hit.transform.gameObject.name);
-            if (hit.transform.gameObject.layer == 5)
-                return;
-            else if (hit.transform.gameObject.tag == "Obj")
-                return;
-            else
+            if (GameManager.Instance.IsObjMove == false)
             {
-                RightMouseButtonClick();
-                LeftMouseButtonClick();
-                WheelMouseScroll();
+                //Debug.Log(hit.transform.gameObject.name);
+                if (hit.transform.gameObject.layer == 5)
+                    return;
+                else if (hit.transform.gameObject.tag == "Obj")
+                    return;
+                else
+                {
+                    GameManager.Instance.IsCameraMove = true;
+                    RightMouseButtonClick();
+                    LeftMouseButtonClick();
+                    WheelMouseScroll();
+                    
+                } 
             }
         }
-        
-
     }
 
     void RightMouseButtonClick()
@@ -66,6 +69,11 @@ public class CameraMove : MonoBehaviour
 
             lastPosition = Input.mousePosition;
         }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            GameManager.Instance.IsCameraMove = false;
+        }
+
     }
 
     void LeftMouseButtonClick()
@@ -85,6 +93,11 @@ public class CameraMove : MonoBehaviour
 
             lastPosition = Input.mousePosition;
         }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            GameManager.Instance.IsCameraMove = false;
+        }
+
     }
 
     void WheelMouseScroll()
@@ -101,6 +114,7 @@ public class CameraMove : MonoBehaviour
         else
         {
             Camera.main.orthographicSize += Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+            GameManager.Instance.IsCameraMove = false;
         }
     }
 }
