@@ -19,14 +19,11 @@ public class ObjControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (GameManager.Instance.IsCameraMove == true)
-            return;
-
-        if (GameManager.Instance.IsObjMove == false)
+        if (GameManager.Instance.IsCameraMove == false)
         {
+            RaycastHit hit;
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
             if (Physics.Raycast(ray, out hit))
             {
                 //Debug.Log(hit.transform.gameObject.name);
@@ -34,35 +31,38 @@ public class ObjControl : MonoBehaviour
                 if (hit.transform.parent.tag == "Obj")
                 {
                     GameManager.Instance.IsObjMove = true;
+
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                    }
+                    else if (Input.GetMouseButton(0))
+                    {
+                        rend.material.color = Color.magenta;
+
+                        if (Physics.Raycast(ray, out hit, 500, 8))
+                        {
+                            Debug.Log(hit.transform.gameObject.name);
+                            Debug.Log(hit.distance);
+                        }
+                    }
+                    else if (Input.GetMouseButtonUp(0))
+                    {
+                        rend.material.color = defaultColor;
+                        GameManager.Instance.IsObjMove = false;
+                    }
                 }
             }
-
         }
-        else
+
+        if(Input.GetMouseButtonUp(0))
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-            }
-            else if (Input.GetMouseButton(0))
-            {
-                rend.material.color = Color.magenta;
-                
-                if(Physics.Raycast(ray, out hit, 100, 8))
-                {
-                    Debug.Log(hit.transform.gameObject.name);
-                }
-            }
-            else if (Input.GetMouseButtonUp(0))
-            {
-                rend.material.color = defaultColor;
-                GameManager.Instance.IsObjMove = false;
-            }
-
-
+            rend.material.color = defaultColor;
+            GameManager.Instance.IsObjMove = false;
         }
     }
 
     public void OnMouseDrag()
     {
+        Debug.Log("MouseDrag");
     }
 }

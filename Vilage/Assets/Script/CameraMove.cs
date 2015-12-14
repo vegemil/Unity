@@ -30,10 +30,10 @@ public class CameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(ray, out hit))
+        if (GameManager.Instance.IsObjMove == false)
         {
-            if (GameManager.Instance.IsObjMove == false)
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
             {
                 //Debug.Log(hit.transform.gameObject.name);
                 if (hit.transform.gameObject.layer == 5)
@@ -46,8 +46,7 @@ public class CameraMove : MonoBehaviour
                     RightMouseButtonClick();
                     LeftMouseButtonClick();
                     WheelMouseScroll();
-                    
-                } 
+                }
             }
         }
     }
@@ -93,11 +92,10 @@ public class CameraMove : MonoBehaviour
 
             lastPosition = Input.mousePosition;
         }
-        else if (Input.GetMouseButtonUp(1))
+        else if (Input.GetMouseButtonUp(0))
         {
             GameManager.Instance.IsCameraMove = false;
         }
-
     }
 
     void WheelMouseScroll()

@@ -17,7 +17,7 @@ public class GameManager
         }
     }
 
-    private bool isObjMove;
+    private bool isObjMove = false;
     public bool IsObjMove
     {
         get
@@ -30,7 +30,7 @@ public class GameManager
         }
     }
 
-    private bool isCameraMove;
+    private bool isCameraMove = false;
     public bool IsCameraMove
     {
         get
