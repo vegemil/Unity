@@ -50,7 +50,7 @@ public class HeadBilboard : MonoBehaviour
         //localLookDirection.y = 0;
         //transform.up = transform.rotation * localLookDirection;
 
-        transform.up = transform.forward;
+        //transform.up = transform.forward;
         transform.LookAt(target);
 
         //transform.LookAt(target, Vector3.down);
